@@ -52,9 +52,10 @@ module.exports = {
             const $ = cheerio.load(res.data);
             let currency = $('#quote-header-info > div.Mt\\(15px\\) > div > div > span').text()
             currency = currency ? currency.split(' ').pop() : undefined;
+            const curr = parseFloat($('#quote-header-info > div:nth-child(3) > div > div > span:nth-child(1)').text());
             const col1 = $('#quote-summary > div.Pend\\(12px\\) > table > tbody').map(mapRows).get()[0];
             const col2 = $('#quote-summary > div.Pstart\\(12px\\) > table > tbody').map(mapRows).get()[0];
-            return handleResponse({ updated: Date.now(), ...col1, ...col2 }, currency);
+            return handleResponse({ updated: Date.now(), curr: curr, ...col1, ...col2 }, currency);
             
         }
         catch(err) {
