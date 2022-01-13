@@ -4,8 +4,8 @@ const { dateToUnix, handleError, handleResponse } = require('./util');
 const frequencyList = ['1d', '1wk', '1mo'];
 var numeral = require('numeral');
 const numeralConfig = require('./numeralConfig.json');
-numeral.register('locale', 'dui', numeralConfig); // dui is my nickname, just for custom config xD
-numeral.locale('dui');
+//numeral.register('locale', 'dui', numeralConfig); // dui is my nickname, just for custom config xD
+//numeral.locale('dui');
 const instance = axios.create({
     baseURL: 'https://finance.yahoo.com/quote/',
     timeout: 5000
